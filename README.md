@@ -9,7 +9,7 @@ You will also need your membership ID. You can find this in the URL when you log
 The URL will look something like this: https://www.brandweerrooster.nl/memberships/12345/schedule/exception_schedule?locale=nl. The number in the URL is your membership ID.
 
 Once you have this information you can edit the script and enter in the variables.
-- First set a working directory. This is where the script and other files will be stored. In my case I use "C:\Brandweerrooster\PowerShell". You can change this if you like.
+- First set a working directory. This is where the script and other files will be stored. In my case I use "C:\Script". You can change this if you like.
 - Enter your username (usually emailaddress) you use to login to Brandweerrooster.
 - Fill in your membership ID
 
@@ -20,7 +20,7 @@ In PowerShell change directory to the working directory you chose, e.g. "cd C:\B
 This will prompt with a window that will ask for your Brandweerrooster password. It will store your password encrypted.
 
 # How to run the script
-The script can be run manually in PowerShell or as a scheduled task. It will output a file calendar called brandweercalendar.ics inside the www folder within the working directory you specified. In my case the file gets copied over to a webserver so I can add this to my calendar app as a 'subscribed calendar'.
+The script can be run manually in PowerShell or as a scheduled task. It will output a file calendar called brandweercalendar.ics inside the working directory you specified. In my case the file gets copied over to a webserver so I can add this to my calendar app as a 'subscribed calendar'.
 For troubleshooting purposes the script will output a log file that you can review to troubleshoot any potential errors.
 
 
