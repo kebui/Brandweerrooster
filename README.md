@@ -20,7 +20,8 @@ In PowerShell change directory to the working directory you chose, e.g. "cd C:\B
 This will prompt with a window that will ask for your Brandweerrooster password. It will store your password encrypted.
 
 # How to run the script
-The script can be run manually in PowerShell or as a scheduled task. It will output the file calendar inside the www folder within the working directory you specified. In my case the file gets copied over to a webserver so I can add this to my calendar app as a 'subscribed calendar'.
+The script can be run manually in PowerShell or as a scheduled task. It will output a file calendar called brandweercalendar.ics inside the www folder within the working directory you specified. In my case the file gets copied over to a webserver so I can add this to my calendar app as a 'subscribed calendar'.
+For troubleshooting purposes the script will output a log file that you can review to troubleshoot any potential errors.
 
 
 
