@@ -1,7 +1,7 @@
 # Brandweerrooster
 A script to fetch your availability schedule from brandweerrooster and convert it into an ics file which you can import / subscribe to in your calendar app.
 
-I have created this PowerShell script to be able to see in my calendar app when I am on stand-by (duty) in Brandweerrooster. This way I can also easily share my duty schedule with the rest of the family. When you run the script, it will fetch your availability from Brandweerrooster for the next 30 days and turn it into in .ics (calendar) file. This file can be imported into your favorite calendar app like Google Agenda Microsoft Outlook, Apple agenda etc. If you host the .ics file on a webserver you can also subscribe to it to avoid recurring manual imports.
+I have created this PowerShell script to be able to see in my calendar app when I am on stand-by (duty) in Brandweerrooster. This way I can easily share my duty schedule with the rest of the family. When you run the script, it will fetch your availability from Brandweerrooster for the next 30 days and turn it into in .ics (calendar) file. This file can be imported into your favorite calendar app like Google Agenda Microsoft Outlook, Apple agenda etc. If you host the .ics file on a webserver you can also subscribe to it to avoid recurring manual imports.
 
 # How to get started
 You will need your Brandweerrooster login credentials (username and password)
@@ -10,7 +10,7 @@ The URL will look something like this: https://www.brandweerrooster.nl/membershi
 
 Once you have this information you can edit the script and enter in the variables.
 - First set a working directory. This is where the script and other files will be stored. In my case I use "C:\Script". You can change this if you like.
-- Enter your username (usually emailaddress) you use to login to Brandweerrooster.
+- Enter your username (usually email address) you use to login to Brandweerrooster.
 - Fill in your membership ID
 
 In PowerShell change directory to the working directory you chose, e.g. "cd C:\Brandweerrooster\PowerShell" and run these two commands:
