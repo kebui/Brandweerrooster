@@ -3,25 +3,14 @@
 # 2025-04-04: Added logging and error handling - version 1.1
 # 2025-04-06: Added token handling - version 1.2
 # 2025-04-07: Added token protection and removed clear text credentials - version 1.3
-# Initially run commands below to securely store your password
-#       $securePassword = Read-Host "Enter password" -AsSecureString
-#       $securePassword | ConvertFrom-SecureString | Set-Content ".\password.txt"
+# 2025-04-10: Improved initial credential setup - version 1.3.1
+
 
 # Set working directory
-Set-Location -Path "C:\script"
+Set-Location -Path "C:\Script"
 
 # Configuration - Fill these in
 $username = "username@domain.nl"             # Your Brandweerrooster username (usually email address)
-$securePassword = Get-Content ".\password.txt" | ConvertTo-SecureString
-$password = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto(
-    [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePassword)
-)
-
-# API URL and information
-$ApiBaseUrl = "https://www.brandweerrooster.nl/api/v2"
-$MembershipID = "12345"  # Your membership ID, retrieve from brandweerrooster URL
-$tokenUrl = "https://www.brandweerrooster.nl/oauth/token"
-$tokenFile = ".\brandweerrooster_token.json"  # Path where the encrypted token will be saved
 
 # Logging function
 function Log-Message {
@@ -36,6 +25,32 @@ function Log-Message {
 }
 
 Log-Message "Script started."
+
+# Path to the password file
+$passwordFile = ".\password.txt"
+
+# Check if password file exists
+if (-Not (Test-Path $passwordFile)) {
+    Write-Host "No stored password found. Please enter your password."
+    $securePassword = Read-Host "Enter password" -AsSecureString
+    $securePassword | ConvertFrom-SecureString | Set-Content -Path $passwordFile
+    Write-Host "Password saved securely."
+    Log-Message "New password securely stored."
+} else {
+    Log-Message "Using stored secure password."
+}
+
+# Read and decrypt the stored password
+$securePassword = Get-Content $passwordFile | ConvertTo-SecureString
+$password = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto(
+    [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePassword)
+)
+
+# API URL and information
+$ApiBaseUrl = "https://www.brandweerrooster.nl/api/v2"
+$MembershipID = "12345" # Your membership ID, retrieve from brandweerrooster URL
+$tokenUrl = "https://www.brandweerrooster.nl/oauth/token"
+$tokenFile = ".\brandweerrooster_token.json"  # Path where the encrypted token will be saved
 
 # Function to save encrypted token (only access_token is encrypted)
 function Save-EncryptedToken {
