@@ -10,8 +10,8 @@ The URL will look something like this: https://www.brandweerrooster.nl/membershi
 
 Once you have this information you can edit the script and enter in the variables.
 - First set a working directory. This is where the script and other files will be stored. In my case I use "C:\Script". You can change this if you like.
-- Enter your username (usually email address) you use to login to Brandweerrooster.
-- Fill in your membership ID
+- Fill in the username variable ($username) in the script. This is usually your email address
+- Fill in your membership ID ($MembershipID)
 - When you run the script for the first time it will ask for your Brandweerrooster password. It will store your password encrypted for future use.
 
 # How to run the script
