@@ -12,12 +12,7 @@ Once you have this information you can edit the script and enter in the variable
 - First set a working directory. This is where the script and other files will be stored. In my case I use "C:\Script". You can change this if you like.
 - Enter your username (usually email address) you use to login to Brandweerrooster.
 - Fill in your membership ID
-
-In PowerShell change directory to the working directory you chose, e.g. "cd C:\Brandweerrooster\PowerShell" and run these two commands:
-- $securePassword = Read-Host "Enter password" -AsSecureString
-- $securePassword | ConvertFrom-SecureString | Set-Content ".\password.txt"
-
-This will prompt with a window that will ask for your Brandweerrooster password. It will store your password encrypted.
+- When you run the script for the first time it will ask for your Brandweerrooster password. It will store your password encrypted for future use.
 
 # How to run the script
 The script can be run manually in PowerShell or as a scheduled task. It will output a file calendar called brandweercalendar.ics inside the working directory you specified. In my case the file gets copied over to a webserver so I can add this to my calendar app as a 'subscribed calendar'.
